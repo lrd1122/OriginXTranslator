@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'gx.lrd1122.OriginXTranslator.OriginXTranslator'
+        attributes 'Class-Path': 'libs/Spigot.jar'
+    }
+}
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+group 'gx.lrd1122'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation fileTree('libs')
+}
+
+test {
+    useJUnitPlatform()
+}
